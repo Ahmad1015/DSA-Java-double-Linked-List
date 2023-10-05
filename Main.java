@@ -134,7 +134,7 @@ class DoubleLinkedList extends List{
     }
 
     public boolean addAtLocation(int location,int element){
-        if(location>=0 &&location<=size){                       // Validation if location is valid or not
+        if(location>=0){                       // Validation if location is valid or not
             if(location == 0)
                 addAtStart(element);
             else if (location == size)
@@ -146,7 +146,9 @@ class DoubleLinkedList extends List{
                 while(curr.next!=null){
                     if (counter==location-1){
                         temp.next = curr.next;
+                        curr.next.prev = temp;
                         curr.next = temp;
+                        temp.prev = curr;
                         size++;
                     }
                     counter++;
