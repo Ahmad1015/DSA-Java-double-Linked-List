@@ -127,6 +127,7 @@ class DoubleLinkedList extends List{
         }
         else{
             tail.next = newNode;
+            newNode.prev = tail;
             tail= newNode;
         }
         
